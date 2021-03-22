@@ -1,5 +1,6 @@
 * List les groupe de ressource
-* az logint logout
+* az logint 
+* az logout
 * az connect
 * az account set --subscription mysubscription
 az group create -l westus -n MyResourceGroup
