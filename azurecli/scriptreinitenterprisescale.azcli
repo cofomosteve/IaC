@@ -1,0 +1,48 @@
+
+* az logint 
+**az login --use-device-code
+* az logout
+az connect
+
+**list les subscription/account
+az account list --all
+
+** list all resource group
+
+az group list
+
+* reintialiser Azure Enterprise Scale
+
+export Companyprefix=COFOD
+
+export ZoneAccueilSubscription=eb17efc5-4806-4144-bd95-a3c700769053
+export IdentitySubscription=ddec50e5-955a-4b45-91f4-01f3a634fb3d
+export ConnectivitySubscription=bec69fd-0f1b-426a-babe-e72f3572915d
+export SponsorShipSubscription=2830c1bb-dbc2-41d3-bf92-616ef65f80bc
+
+*0 Delete Resource group COGOD-Mgnt
+xxxxxxxxxxxxxxxx
+az group delete --name xxxxxxxxxxxxxxx like COFOD**
+* 1. deplacer les subscription
+**-----------Zone d'accueil, Make sur that MgnGroup Name
+az account management-group subscription remove -n COFOD-corp -s eb17efc5-4806-4144-bd95-a3c700769053
+**-----------identity, Make sur that MgnGroup Name - PLateform/identity
+az account management-group subscription remove -n COFOD-identity -s ${IdentitySubscription}
+
+**-----------Connectivity, Make sur that MgnGroup Name - PLateform/connectivty
+az account management-group subscription remove -n COFOD-connectivity -s ${SponsorShipSubscription}
+
+**-----------Zone Accueil, Make sur that MgnGroup Name - LandinbgZone/Corp
+az account management-group subscription remove -n COFOD-corp -s ${ZoneAccueilSubscription}
+
+**Delete MgnGroup
+az account management-group delete --name ${Companyprefix}-corp
+az account management-group delete --name ${Companyprefix}-online
+az account management-group delete --name ${Companyprefix}-identity
+az account management-group delete --name ${Companyprefix}-connectivity
+az account management-group delete --name ${Companyprefix}-platform
+az account management-group delete --name ${Companyprefix}-landingzones
+az account management-group delete --name ${Companyprefix}-decommissioned
+az account management-group delete --name ${Companyprefix}
+
+** Delete Policy definition. Comme les policy sont crée dans le MgnGroup de ES, lorsqu'on supprime le MgnGroup, il supprime les policies aussi.

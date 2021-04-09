@@ -1,0 +1,4 @@
+**
+
+kv=nancykeyvault
+az keyvault list-deleted --query "contains([].name,'$kv')"

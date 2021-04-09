@@ -1,0 +1,65 @@
+az policy definition list --management-group CO --query "[?policyType=='Custom'].[*] | length(@)"
+
+az policy set-definition list --management-group CO --query "[?policyType=='Custom'].[*] | length(@)"
+
+ 
+
+# Se connecter en CLI
+
+az login
+
+ 
+
+# Se déconnecter en CLI
+
+az logout
+
+ 
+
+az account list
+
+ 
+
+# Les management groups
+
+az account management-group list
+
+ 
+
+# List all custom policies en CLI
+
+az policy definition list --management-group COFO8 --query "[?policyType=='Custom'].[*]
+
+ 
+
+az policy definition list --management-group CO --query "[?policyType=='Custom'].[*] | length(@)"
+
+az policy set-definition list --management-group CO --query "[?policyType=='Custom'].[*] | length(@)"
+
+ 
+
+az policy assignment list --disable-scope-strict-match
+
+az policy assignment list --scope '/providers/Microsoft.Management/managementGroups/CO/'
+
+ 
+
+az policy definition list --management-group COFO8 --query "[?starts_with(id, '/providers/Microsoft.Management/managementGroups/COFO8')].[id, displayName]"
+
+az policy definition list --management-group COFO2 --query-example
+
+ 
+
+# liste des blueprint du groupe d'administration Tenant Root Group
+
+az blueprint list --management-group 4dbda3f1-592e-4847-a01c-1671d0cc077f
+
+ 
+
+# Export blueprint - PowerShell seulement...
+
+Connect-AzAccount
+
+$bpDefinition = Get-AzBlueprint -Name 'Canada-BPMM-NG' -ManagementGroup 'campus-mg'
+
+Export-AzBlueprintWithArtifact -Blueprint $bpDefinition -OutputPath './testExport'

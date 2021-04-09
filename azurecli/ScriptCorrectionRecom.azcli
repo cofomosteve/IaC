@@ -1,3 +1,6 @@
+**to allow installing extensions without prompt.
+az config set extension.use_dynamic_install=yes_without_prompt
+
 * List les groupe de ressource
 * az logint 
 * az logout
@@ -5,3 +8,25 @@
 * az account set --subscription mysubscription
 az group create -l westus -n MyResourceGroup
 **
+** For all
+**https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest
+
+**Deploy advanced threat protection ON STORAGE ACCOUNT
+**https://docs.microsoft.com/en-us/cli/azure/security?view=azure-cli-latest
+*****SECURITY**********
+**ATP******************
+az security atp storage show  --resource-group RGNAME --storage-account STACCOUNTNAME
+
+az security atp storage update --resource-group RGNAME --storage-account STACCOUNTNAME --is-enabled false
+az security atp storage update --resource-group RGNAME --storage-account STACCOUNTNAME --is-enabled true
+
+**CREATE FROM template
+az group deployment create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-storage-advanced-threat-protection-create/azuredeploy.json
+
+
+**************************************************BLUEPRINT****************************************************
+
+**maj blueprint assignment
+az blueprint assignment update
+
+
