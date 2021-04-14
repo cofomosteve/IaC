@@ -17,11 +17,20 @@ export Companyprefix=COFOD
 
 export ZoneAccueilSubscription=eb17efc5-4806-4144-bd95-a3c700769053
 export IdentitySubscription=ddec50e5-955a-4b45-91f4-01f3a634fb3d
-export ConnectivitySubscription=bec69fd-0f1b-426a-babe-e72f3572915d
+export ConnectivitySubscription=cbec69fd-0f1b-426a-babe-e72f3572915d
 export SponsorShipSubscription=2830c1bb-dbc2-41d3-bf92-616ef65f80bc
 
 *0 Delete Resource group COGOD-Mgnt
 xxxxxxxxxxxxxxxx
+
+az group exists -n cloud-shell-storage-westeurope
+az group list --query "[?location=='canadacentral']"
+az group exists -n COFOD-mgmt --subscription bec69fd-0f1b-426a-babe-e72f3572915d
+az group exists -n COFOD-connectivity
+
+az group delete --name COFOD-mgmt --subscription ${ConnectivitySubscription} --yes -y
+az group delete --name COFOD-connectivity --no-wait --yes -y
+
 az group delete --name xxxxxxxxxxxxxxx like COFOD**
 * 1. deplacer les subscription
 **-----------Zone d'accueil, Make sur that MgnGroup Name

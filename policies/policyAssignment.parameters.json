@@ -1,0 +1,29 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "input": {
+        "value": {
+          "Identity": null,
+          "Location": null,
+          "Name": "Enf-Naming-Convention",
+          "PolicyAssignmentId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/Enf-Naming-Convention",
+          "Properties": {
+            "Description": "Assigning Enforce Naming Convention using  policyAssignment.parameters.json",
+            "DisplayName": "enforce-resource-naming",
+            "NotScopes": null,
+            "Parameters": {},
+            "PolicyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/enforce-resource-naming",
+            "Scope": "/providers/Microsoft.Management/managementGroups/ES"
+          },
+          "ResourceId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/Enf-Naming-Conventionn",
+          "ResourceName": "Enf-Naming-Convention",
+          "ResourceType": "Microsoft.Authorization/policyAssignments",
+          "Sku": {
+            "name": "A0",
+            "tier": "Free"
+          }
+        }
+      }
+    }
+  }
